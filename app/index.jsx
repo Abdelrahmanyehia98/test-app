@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, Button, TextInput } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, Button, TextInput,StatusBar } from "react-native";
 import Sidebar from "../components/Sidebar";
 
 const initialData = [
-  { id: 1, image: require("../assets/lemon.png") }, // Lemon
-  { id: 2, image: require("../assets/mango.png") }, // Mango
-  { id: 3, image: require("../assets/icon.png") }, // Green
+  { id: 1, image: require("../assets/lemon.png") }, 
+  { id: 2, image: require("../assets/mango.png") }, 
+  { id: 3, image: require("../assets/icon.png") }, 
 ];
 
 export default function HomeScreen() {
@@ -39,7 +39,6 @@ export default function HomeScreen() {
           onChangeText={(text) => setSearchQuery(text)}
         />
 
-        <Text style={styles.title}>ScrollView Example</Text>
         <ScrollView>
           {filteredData.map((item) => (
             <TouchableOpacity key={item.id} onPress={() => deleteItem(item.id)}>
@@ -72,9 +71,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   item: {
+    top: 40,
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: 20,
     padding: 10,
     backgroundColor: "#f0f0f0",
     borderRadius: 5,
@@ -89,11 +89,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   searchInput: {
-    height: 40,
+    top: 40,
+    height: 30,
     borderColor: "#ccc",
-    borderWidth: 1,
+    borderWidth: 3,
     borderRadius: 5,
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: 40,
   },
 });
